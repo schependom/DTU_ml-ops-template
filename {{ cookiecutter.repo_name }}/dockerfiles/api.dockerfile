@@ -3,6 +3,9 @@ FROM ghcr.io/astral-sh/uv:python{{ cookiecutter.python_version }}-alpine AS base
 COPY uv.lock uv.lock
 COPY pyproject.toml pyproject.toml
 COPY README.md README.md
+COPY LICENSE LICENSE
+COPY configs/ configs/
+COPY tests/ tests/
 
 RUN uv sync --frozen --no-install-project
 
