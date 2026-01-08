@@ -28,7 +28,7 @@ jobs:
 
       - name: Set up uv env
         run: |
-          uv env create --python-version=3.12
+          uv venv create --python-version=3.12
 
       - name: Install dependencies
         run: |
