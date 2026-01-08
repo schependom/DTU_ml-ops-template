@@ -1,4 +1,4 @@
-# Dependabot does not support updating 
+# Dependabot does not support updating
 # pre-commit so this workflow will do that
 
 name: Pre-commit auto-update
