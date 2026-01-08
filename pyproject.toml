@@ -8,6 +8,8 @@ dependencies = [
     "pre-commit==4.1.0",
     "invoke==2.2.0",
     "loguru==0.7.3",
+    "numpy>=2.4.0",
+    "mkdocs>=1.6.1",
 ]
 
 [tool.ruff]
