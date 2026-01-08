@@ -27,6 +27,7 @@ COPY uv.lock uv.lock
 COPY src/ src/
 COPY data/ data/
 COPY configs/ configs/
+COPY README.md README.md
 
 ##
 # Install our project dependencies
