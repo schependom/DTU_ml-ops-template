@@ -10,6 +10,12 @@ projects and is being used as the core template in the [DTU MLOps course](https:
 
 You need the following to use this template:
 
+-   `uv` and `uvx`, which can be installed with homebrew:
+
+    ```bash
+    brew install uv
+    ```
+
 -   Python 3.11 or higher
 -   [Cookiecutter](https://github.com/cookiecutter/cookiecutter) version 2.4.0 or higher, which can be installed globally with `uvx`:
 
