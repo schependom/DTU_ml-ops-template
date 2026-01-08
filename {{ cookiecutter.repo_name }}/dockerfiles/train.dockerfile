@@ -27,6 +27,7 @@ COPY uv.lock uv.lock
 COPY src/ src/
 COPY data/ data/
 COPY configs/ configs/
+COPY tests/ tests/
 COPY README.md README.md
 COPY LICENSE LICENSE
 
@@ -60,7 +61,7 @@ RUN mkdir -p models reports/figures
 # The entry point is the application we want to run
 # when the container starts up
 
-ENTRYPOINT ["uv", "run", "src/ml_ops/train.py"]
+ENTRYPOINT ["uv", "run", "src/{{ cookiecutter.project_name }}/train.py"]
 
 ## Building the Docker image:
 #
