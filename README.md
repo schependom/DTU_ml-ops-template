@@ -23,6 +23,8 @@ You need the following to use this template:
     uvx add cookiecutter
     ```
 
+-   Ruff VSCode extension (used in `.vscode/settings.json` for linting and formatting
+
 ## Start a new project
 
 Start by creating a repository. Afterwards, on your local machine, run

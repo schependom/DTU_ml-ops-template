@@ -1,7 +1,7 @@
+import shutil
 from ctypes import Union
 from keyword import iskeyword
 from operator import ge, le
-import shutil
 from pathlib import Path
 from typing import Any
 
@@ -69,4 +69,5 @@ gitignore_path = Path(".gitignore")
 with gitignore_path.open("a") as gitignore_file:
     gitignore_file.write("\n# Added by post_gen_project.py script\n")
     gitignore_file.write(".env\n")
+    gitignore_file.write(".vscode/\n")
     # TODO: add more files
