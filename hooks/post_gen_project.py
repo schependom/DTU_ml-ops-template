@@ -1,12 +1,17 @@
+from ctypes import Union
 from keyword import iskeyword
 from operator import ge, le
 import shutil
 from pathlib import Path
+from typing import Any
 
 try:
-    from loguru import logger
+    from loguru import logger  # type: ignore
+
 except ImportError:
     import logging
+
+    logger: Union[Any, logging.Logger]
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
@@ -58,3 +63,10 @@ if project_structure == "simple":
     for f in folder_and_files_to_remove:
         if Path(f).exists():
             shutil.rmtree(f)
+
+# Add files to gitignore
+gitignore_path = Path(".gitignore")
+with gitignore_path.open("a") as gitignore_file:
+    gitignore_file.write("\n# Added by post_gen_project.py script\n")
+    gitignore_file.write(".env\n")
+    # TODO: add more files

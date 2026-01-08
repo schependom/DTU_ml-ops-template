@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: 'pip'
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -35,17 +34,17 @@ jobs:
       - name: Execute template
         run: |
           invoke template \
-            --project-structure=${{ matrix.project_structure }} --project-manager=${{ matrix.project_manager }}
+            --project-structure=${{ matrix.project_structure }}
 
       - name: Generated tree structure
         run: |
-          tree -a ${{ matrix.project_structure }}_${{ matrix.project_manager }}_repo
+          tree -a ${{ matrix.project_structure }}_uv_repo
 
       - name: Upload generated template
         uses: actions/upload-artifact@v4
         with:
-          name: generated-template-${{ matrix.project_structure }}-${{ matrix.project_manager }}
-          path: ${{ matrix.project_structure }}_${{ matrix.project_manager }}_repo
+          name: generated-template-${{ matrix.project_structure }}
+          path: ${{ matrix.project_structure }}_uv_repo
           include-hidden-files: true
 
   uv-project:

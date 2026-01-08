@@ -1,7 +1,7 @@
 default_context:
-    repo_name: "advance_uv_repo"
+    repo_name: "advanced_uv_repo"
     project_name: "project_name"
-    project_structure: "advance"
+    project_structure: "advanced"
     author_name: "author_name"
     description: "description"
     python_version: "3.12"

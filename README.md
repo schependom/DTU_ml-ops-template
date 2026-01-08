@@ -6,10 +6,13 @@ was in turn inspired by the popular
 This template is more opinionated than the latter regarding tools used. It has been updated to better fit machine learning-based
 projects and is being used as the core template in the [DTU MLOps course](https://github.com/SkafteNicki/dtu_mlops).
 
-## Requirements to use the template:
+## Requirements to use the template
+
+You need the following to use this template:
 
 -   Python 3.11 or higher
--   [cookiecutter](https://github.com/cookiecutter/cookiecutter) version 2.4.0 or higher, which can be installed globally with `uvx`:
+-   [Cookiecutter](https://github.com/cookiecutter/cookiecutter) version 2.4.0 or higher, which can be installed globally with `uvx`:
+
     ```bash
     uvx add cookiecutter
     ```
@@ -19,7 +22,7 @@ projects and is being used as the core template in the [DTU MLOps course](https:
 Start by creating a repository. Afterwards, on your local machine, run
 
 ```bash
-cookiecutter https://github.com/SkafteNicki/mlops_template
+cookiecutter https://github.com/schependom/DTU_ml-ops-template
 ```
 
 You will be prompted with the following questions:
@@ -68,7 +71,7 @@ git push origin master
 
 ## Repository structure
 
-Assuming you choose the `advanced` structure and `uv` as the dependency manager, the repository will look like
+Assuming you choose the `advanced` structure, the repository will look like
 something like this:
 
 ```txt
