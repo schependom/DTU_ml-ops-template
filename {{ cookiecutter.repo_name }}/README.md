@@ -5,6 +5,7 @@
 ## Project structure
 
 The directory structure of the project looks like this:
+
 ```txt
 ├── .github/                  # Github actions and dependabot
 │   ├── dependabot.yaml
@@ -44,12 +45,8 @@ The directory structure of the project looks like this:
 ├── LICENSE
 ├── pyproject.toml            # Python project file
 ├── README.md                 # Project README
-├── requirements.txt          # Project requirements
-├── requirements_dev.txt      # Development requirements
 └── tasks.py                  # Project tasks
 ```
 
-
-Created using [mlops_template](https://github.com/SkafteNicki/mlops_template),
-a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for getting
-started with Machine Learning Operations (MLOps).
+Created using [DTU_ml-ops-template](https://github.com/schependom/DTU_ml-ops-template),
+a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) based on [mlops_template](https://github.com/SkafteNicki/mlops_template) by Nicki Skafte.

@@ -1,3 +1,15 @@
+[project]
+name = "dtumlops"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "cookiecutter==2.6.0",
+    "pytest==8.3.4",
+    "pre-commit==4.1.0",
+    "invoke==2.2.0",
+    "loguru==0.7.3",
+]
+
 [tool.ruff]
 line-length = 120
 target-version = "py311"

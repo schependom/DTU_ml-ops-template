@@ -1,23 +1,22 @@
-# 🍪 A up-to-date Cookiecutter template for MLOps
+# An up-to-date `uv` Cookiecutter template for MLOps
 
-Inspired by the original [cookiecutter-data-science](https://cookiecutter-data-science.drivendata.org/v1/) template.
-This template is more opinionated regarding tools used. It has been updated to better fit machine learning-based
-projects and is being used as the core template in this [MLOps course](https://github.com/SkafteNicki/dtu_mlops).
+Adapted from Nicki Skafte's [mlops_template](https://github.com/SkafteNicki/mlops_template), which
+was in turn inspired by the popular
+[cookiecutter-data-science](https://cookiecutter-data-science.drivendata.org/v1/) template.
+This template is more opinionated than the latter regarding tools used. It has been updated to better fit machine learning-based
+projects and is being used as the core template in the [DTU MLOps course](https://github.com/SkafteNicki/dtu_mlops).
 
-## ✋ Requirements to use the template:
+## Requirements to use the template:
 
-* Python 3.11 or higher
-* [cookiecutter](https://github.com/cookiecutter/cookiecutter) version 2.4.0 or higher
+-   Python 3.11 or higher
+-   [cookiecutter](https://github.com/cookiecutter/cookiecutter) version 2.4.0 or higher, which can be installed globally with `uvx`:
+    ```bash
+    uvx add cookiecutter
+    ```
 
-## 🆕 Start a new project
+## Start a new project
 
-Start by creating a repository either using the GitHub GUI in the web browser or alternatively you can use the
-[GitHub command line interface](https://cli.github.com/) if you have set it up:
-
-```bash
-gh repo create <repo_name> --public --confirm
-```
-Afterwards on your local machine run
+Start by creating a repository. Afterwards, on your local machine, run
 
 ```bash
 cookiecutter https://github.com/SkafteNicki/mlops_template
@@ -26,20 +25,16 @@ cookiecutter https://github.com/SkafteNicki/mlops_template
 You will be prompted with the following questions:
 
 ```txt
-    [1/8] repo_name (repo_name):
-    [2/8] project_name (project_name):
-    [3/8] Select project_structure
-        1 - advance
+    [1/7] repo_name (repo_name):
+    [2/7] project_name (project_name):
+    [3/7] Select project_structure
+        1 - advanced
         2 - simple
         Choose from [1/2] (1):
-    [4/8] Select deps_manager
-        1 - pip
-        2 - uv
-        Choose from [1/2] (1):
-    [5/8] author_name (Your name (or your organization/company/team)):
-    [6/8] description (A short description of the project.):
-    [7/8] python_version (3.12):
-    [8/8] Select open_source_license
+    [4/7] author_name (Your name (or your organization/company/team)):
+    [5/7] description (A short description of the project.):
+    [6/7] python_version (3.12):
+    [7/7] Select open_source_license
         1 - No license file
         2 - MIT
         3 - BSD-3-Clause
@@ -49,16 +44,16 @@ You will be prompted with the following questions:
 Where you should input starting values for the project. A couple of notes regarding the different options:
 
 1. When asked for the `repo_name` e.g. the repository name, this should be the same as when you created the Github
-    repository in the beginning.
+   repository in the beginning.
 
 2. When asked for the `project_name` this should be a
-    [valid Python package name](https://peps.python.org/pep-0008/#package-and-module-names). This means that the name
-    should be all lowercase and only contain letters, numbers and underscores. The project name will be used as the name
-    of the Python package. This will automatically be validated by the template.
+   [valid Python package name](https://peps.python.org/pep-0008/#package-and-module-names). This means that the name
+   should be all lowercase and only contain letters, numbers and underscores. The project name will be used as the name
+   of the Python package. This will automatically be validated by the template.
 
-3. When asked for the `project_structure` you can choose between `advance` and `simple`. The `advance` structure
-    contains everything in the `simple` structure but also includes starting `dockerfiles`, `docs`, `github actions`,
-    `dependabot` and more.
+3. When asked for the `project_structure` you can choose between `advanced` and `simple`. The `advanced` structure
+   contains everything in the `simple` structure but also includes starting `dockerfiles`, `docs`, `github actions`,
+   `dependabot` and more.
 
 To commit to the remote repository afterwards execute the following series of commands:
 
@@ -71,9 +66,9 @@ git remote add origin https://github.com/<username>/<repo_name>
 git push origin master
 ```
 
-## 🗃️ Repository structure
+## Repository structure
 
-Assuming you choose the `advance` structure and `uv` as the dependency manager, the repository will look like
+Assuming you choose the `advanced` structure and `uv` as the dependency manager, the repository will look like
 something like this:
 
 ```txt
@@ -134,18 +129,18 @@ files, shown in the diagram below with their respective connections:
 
 <img src="diagram.drawio.png" alt="diagram" width="1000"/>
 
-* `data.py`: this file is responsible for everything related to the data. This includes loading, cleaning, and splitting
+-   `data.py`: this file is responsible for everything related to the data. This includes loading, cleaning, and splitting
     the data. If the data needs to be pre-processed then running this file should process raw data in the `data/raw`
     folder and save the processed data in the `data/processed` folder.
-* `model.py`: this file contains one or model definitions.
-* `train.py`: this file is responsible for training the model. It should import the training/validation data interface
+-   `model.py`: this file contains one or model definitions.
+-   `train.py`: this file is responsible for training the model. It should import the training/validation data interface
     from `data.py` and the model definition from `model.py`.
-* `evaluate.py`: this file is responsible for evaluating the model. It should import the test data interface from
+-   `evaluate.py`: this file is responsible for evaluating the model. It should import the test data interface from
     `data.py` and load the trained model from the `models` folder. Output should be performance metrics of the trained
     model.
-* `api.py`: this file is responsible for serving the model. It should import the trained model from the `models` folder
+-   `api.py`: this file is responsible for serving the model. It should import the trained model from the `models` folder
     and provide an interface for making predictions.
-* `visualize.py`: this file is responsible for visualizing the data and model. It should import the training/validation/
+-   `visualize.py`: this file is responsible for visualizing the data and model. It should import the training/validation/
     test data interface from `data.py` and the trained model from the `models` folder. Output should be visualizations
     of the data and model.
 
@@ -164,7 +159,7 @@ src/
     ├── ...
 ```
 
-## 📚 The stack
+## The stack
 
 🐍 Python projects using `pyproject.toml`
 
@@ -185,17 +180,3 @@ src/
 📝 Project tasks using [Invoke](https://www.pyinvoke.org/)
 
 and probably more that I have forgotten...
-
-## ❕ License
-
-If you enjoy using the template, please consider giving credit by citing it.
-You can use the following BibTeX entry:
-
-```bibtex
-@misc{skafte_mlops_template,
-    author       = {Nicki Skafte Detlefsen},
-    title        = {MLOps template},
-    howpublished = {\url{https://github.com/SkafteNicki/mlops_template}},
-    year         = {2025}
-}
-```
