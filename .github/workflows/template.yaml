@@ -101,6 +101,7 @@ jobs:
         if: ${{ matrix.project_structure == 'advanced' }}
         run: |
           cd ${{ matrix.project_structure }}
+          ls -R
           uv run invoke docker-build
         env:
           TERM: xterm
