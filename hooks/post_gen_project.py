@@ -2,7 +2,7 @@ import shutil
 from keyword import iskeyword
 from operator import ge, le
 from pathlib import Path
-from typing import Any, Union
+from typing import Any
 
 try:
     from loguru import logger  # type: ignore
@@ -10,7 +10,7 @@ try:
 except ImportError:
     import logging
 
-    logger: Union[Any, logging.Logger]
+    logger: Any | logging.Logger
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
