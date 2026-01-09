@@ -20,20 +20,52 @@ You need the following to use this template:
 -   [Cookiecutter](https://github.com/cookiecutter/cookiecutter) version 2.4.0 or higher, which can be installed globally with `uvx`:
 
     ```bash
-    uvx add cookiecutter
+    uvx cookiecutter
     ```
 
 -   Ruff VSCode extension (used in `.vscode/settings.json` for linting and formatting
 
 ## Start a new project
 
-Start by creating a repository. Afterwards, on your local machine, run
+Start by creating a new repository on GitHub (`https://github.com/<username>/<repo_name>`).
+Do **not** initialize the repository with a README, .gitignore or license. This will create conflicts later on.
+
+### Option A
+
+If you've already cloned this repository to your local machine, you must make sure the project is created in the
+_current_ directory and not as a _subdirectory_.
+
+To create the project in the current directory (and not as a directory inside of the current directory), like for example the cloned repository on your local machine, run
 
 ```bash
-cookiecutter https://github.com/schependom/DTU_ml-ops-template
+uvx cookiecutter https://github.com/schependom/DTU_ml-ops-template --output-dir ./ --overwrite-if-exists
 ```
 
-You will be prompted with the following questions:
+### Option B
+
+If you've **not** yet cloned this repository to your local machine, navigate
+to the directory which houses all of your git repositories (e.g. `~/code` or `~/projects`) and run
+
+```bash
+uvx cookiecutter https://github.com/schependom/DTU_ml-ops-template
+```
+
+Follow the prompts to set up your new project. This will create a new directory with the name of your repository.
+Afterwards, set this directory as the remote origin of your GitHub repository and push the initial commit:
+
+```bash
+# from the parent directory of the created repo (e.g. ~/projects)
+cd <repo_name>
+git init
+git add .
+git commit -m "init cookiecutter project"
+git remote add origin https://github.com/<username>/<repo_name> # the repo created on GitHub
+git push origin master
+```
+
+### Filling out the prompts
+
+You will be prompted with the following questions in both Option A and Option B:
 
 ```txt
     [1/7] repo_name (repo_name):
@@ -52,7 +84,7 @@ You will be prompted with the following questions:
         Choose from [1/2/3] (1):
 ```
 
-Where you should input starting values for the project. A couple of notes regarding the different options:
+A couple of notes regarding the different options:
 
 1. When asked for the `repo_name` e.g. the repository name, this should be the same as when you created the Github
    repository in the beginning.
@@ -65,17 +97,6 @@ Where you should input starting values for the project. A couple of notes regard
 3. When asked for the `project_structure` you can choose between `advanced` and `simple`. The `advanced` structure
    contains everything in the `simple` structure but also includes starting `dockerfiles`, `docs`, `github actions`,
    `dependabot` and more.
-
-To commit to the remote repository afterwards execute the following series of commands:
-
-```bash
-cd <repo_name>
-git init
-git add .
-git commit -m "init cookiecutter project"
-git remote add origin https://github.com/<username>/<repo_name>
-git push origin master
-```
 
 ## Repository structure
 
@@ -172,6 +193,9 @@ src/
 
 ## The stack
 
+Note that some of these tools need to be added to the dependencies in `pyproject.toml` by running `uvx add <package>`.
+In case it is only used during development, add the `--dev` flag, or equivalently use `uvx add --group dev <package>`.
+
 🐍 Python projects using `pyproject.toml`
 
 🔥 Models in [Pytorch](https://pytorch.org/)
@@ -181,6 +205,8 @@ src/
 📄 Documentation with [Material Mkdocs](https://squidfunk.github.io/mkdocs-material/)
 
 👕 Linting and formatting with [ruff](https://docs.astral.sh/ruff/)
+
+🧐 Type checking with [ty](https://docs.astral.sh/ty/)
 
 ✅ Checking using [pre-commit](https://pre-commit.com/)
 
