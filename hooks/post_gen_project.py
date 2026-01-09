@@ -1,9 +1,8 @@
 import shutil
-from ctypes import Union
 from keyword import iskeyword
 from operator import ge, le
 from pathlib import Path
-from typing import Any
+from typing import Any, Union
 
 try:
     from loguru import logger  # type: ignore
