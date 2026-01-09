@@ -4,4 +4,3 @@ advanced_repo/
 __pycache__/
 *.bkp
 .venv/
-.vscode/
